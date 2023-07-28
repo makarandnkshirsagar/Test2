@@ -12,3 +12,6 @@ mergeable:
         must_exclude:
           regex: \[ \]
           message: There are incomplete TODO task(s) unchecked.
+    pass:     
+      - do: checks
+        status: 'success'
