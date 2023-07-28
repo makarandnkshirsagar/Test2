@@ -1,6 +1,6 @@
 version: 2
 mergeable:
-  - when: pull_request.*, pull_request_review.*
+  - when: pull_request.*, pull_request_review.*, status.*, check_suite.*
     validate:
       - do: title
         # Enforce semantic release convention.
@@ -27,15 +27,7 @@ mergeable:
             validate:
               - do: title
                 must_include:
-                  regex: ^(feat|fix)(\(\w+\))?:.+$
-              - do: changeset
-                must_include:
-                  regex: 'docs/changelog.rst'
-                  message: 'new features or fixes needed to be logged to the changelog'
-          - do: title
-            must_exclude:
-              regex: ^(feat|fix)(\(\w+\))?:.+$
-              message: 'new features or fixes needed to be logged to the changelog'
+                  regex: ^(feat|fix)(\(\w+\))?:.+$             
     pass:
       - do: merge
         merge_method: 'squash'
