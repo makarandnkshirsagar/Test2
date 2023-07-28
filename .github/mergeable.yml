@@ -1,0 +1,14 @@
+version: 2
+mergeable:
+  - when: pull_request.*, pull_request_review.*, status.*, check_suite.*
+    validate:     
+        # All todo check boxes must be checked.
+      - do: description
+        must_exclude:
+          regex: \[ \]
+          message: There are incomplete TODO task(s) unchecked.            
+    pass:
+      - do: merge
+        merge_method: 'squash'
+      - do: checks
+        status: 'success'
