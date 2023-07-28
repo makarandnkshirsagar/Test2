@@ -5,7 +5,7 @@ mergeable:
       - do: title
         # Enforce semantic release convention.
         must_include:
-          regex: ^(blank|docs|chore|fix|refactor|test|style|perf)(\(\w+\))?:.+$
+          regex: ^(docs|chore|fix|refactor|test|style|perf)(\(\w+\))?:.+$
           message: Semantic release conventions must be followed.
         # All todo check boxes must be checked.
       - do: description
